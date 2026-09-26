@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { boardPath, imagePath, imagesDir, projectDir } from "./paths.server";
-import type { PublicTask } from "./board.shared";
-import { applyTaskRun } from "./execute-run";
+import type { PublicTask } from "../shared/board.shared";
+import { applyTaskRun } from "../shared/execute-run";
 
 export type TaskImage = PublicTask["images"][number];
 export type Task = PublicTask;

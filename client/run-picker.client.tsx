@@ -10,7 +10,7 @@ import {
   type Catalog,
   type CatalogModel,
   type StoredRun,
-} from "./paseo-catalog";
+} from "../shared/paseo-catalog";
 
 export function useRunnableCatalog(cwd: string | null): Catalog {
   const paseo = usePaseo();

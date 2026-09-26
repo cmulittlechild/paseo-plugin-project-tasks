@@ -13,7 +13,7 @@ import {
   setStatusRpc,
   updateTaskRpc,
   type PublicTask,
-} from "./board.shared";
+} from "../shared/board.shared";
 import * as store from "./store.server";
 
 async function projectIdOf(workspaceId: string, paseo: PluginHandlerContext["paseo"]): Promise<string> {

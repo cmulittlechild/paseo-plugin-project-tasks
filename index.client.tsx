@@ -1,5 +1,5 @@
 import type { PluginClientContext } from "@getpaseo/plugin/client";
-import { TasksPanel } from "./board.client";
+import { TasksPanel } from "./client/board.client";
 
 export default function contribute(client: PluginClientContext) {
   client.addWorkspacePanel({

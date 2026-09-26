@@ -27,9 +27,9 @@ import {
   setStatusRpc,
   updateTaskRpc,
   type PublicTask,
-} from "./board.shared";
-import { prepareComposerSubmission, type ComposerImagePayload, type ComposerSubmission } from "./composer-draft";
-import { prepareExecuteRequest, previewPrompt } from "./execute-run";
+} from "../shared/board.shared";
+import { prepareComposerSubmission, type ComposerImagePayload, type ComposerSubmission } from "../shared/composer-draft";
+import { prepareExecuteRequest, previewPrompt } from "../shared/execute-run";
 import {
   buildRunnableCatalog,
   catalogSnapshotFromUnknown,
@@ -38,7 +38,7 @@ import {
   reconcileSelection,
   type CatalogModel,
   type CatalogPack,
-} from "./paseo-catalog";
+} from "../shared/paseo-catalog";
 import { useWebReorder } from "./reorder.client";
 import { RunPicker, useRunnableCatalog } from "./run-picker.client";
 

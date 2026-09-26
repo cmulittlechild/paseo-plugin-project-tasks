@@ -10,7 +10,7 @@ import {
   reorderOpen,
   setStatus,
   updateTask,
-} from "./board.server";
+} from "./server/board.server";
 import {
   addImageRpc,
   createTaskRpc,
@@ -22,7 +22,7 @@ import {
   reorderOpenRpc,
   setStatusRpc,
   updateTaskRpc,
-} from "./board.shared";
+} from "./shared/board.shared";
 
 export default function contribute(server: PluginServerContext) {
   server.handle(getBoardRpc, getBoard);
