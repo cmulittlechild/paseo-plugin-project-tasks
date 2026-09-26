@@ -50,9 +50,19 @@ declare module "@getpaseo/plugin/server" {
 
   export const PluginAttachmentItemSchema: import("zod").ZodType<PluginAttachmentItem>;
   export const PluginAttachmentSearchPayloadSchema: import("zod").ZodType<PluginAttachmentSearchPayload>;
+
+  export interface PluginServerContext {
+    handle<InputSchema extends ZodType, OutputSchema extends ZodType>(
+      contract: PluginRpcContract<InputSchema, OutputSchema>,
+      handler: (
+        input: ZodOutput<InputSchema>,
+        context: PluginHandlerContext,
+      ) => ZodInput<OutputSchema> | Promise<ZodInput<OutputSchema>>,
+    ): void;
+  }
 }
 
-declare module "@getpaseo/plugin" {
+declare module "@getpaseo/plugin/client" {
   import type { ComponentType } from "react";
   import type { PaseoApi } from "@getpaseo/client";
   import type { ZodType, input as ZodInput, output as ZodOutput } from "zod";
@@ -204,14 +214,7 @@ declare module "@getpaseo/plugin" {
     | { id: string; title: string; icon: string; keywords?: readonly string[]; context: "workspace"; onSelect(context: PluginWorkspaceCommandContext): void | Promise<void> }
     | { id: string; title: string; icon: string; keywords?: readonly string[]; context: "agent"; onSelect(context: PluginAgentCommandContext): void | Promise<void> };
 
-  export interface PluginContext {
-    handle<InputSchema extends ZodType, OutputSchema extends ZodType>(
-      contract: PluginRpcContract<InputSchema, OutputSchema>,
-      handler: (
-        input: ZodOutput<InputSchema>,
-        context: PluginHandlerContext,
-      ) => ZodInput<OutputSchema> | Promise<ZodInput<OutputSchema>>,
-    ): void;
+  export interface PluginClientContext {
     addSurface(id: string, Component: ComponentType<PluginSurfaceProps>): void;
     addSidebarItem(contribution: PluginSidebarContribution): void;
     addWorkspacePanel(contribution: PluginWorkspacePanelContribution): void;
@@ -221,7 +224,7 @@ declare module "@getpaseo/plugin" {
   }
 
   export type PluginCleanup = () => void | Promise<void>;
-  export type PluginContribution = (plugin: PluginContext) => PluginCleanup;
+  export type PluginContribution = (client: PluginClientContext) => PluginCleanup;
 
   export function useRpc<InputSchema extends ZodType, OutputSchema extends ZodType>(
     contract: PluginRpcContract<InputSchema, OutputSchema>,

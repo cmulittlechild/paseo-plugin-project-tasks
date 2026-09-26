@@ -5,7 +5,7 @@ import {
   usePaseo,
   useRpc,
   useWorkspace,
-} from "@getpaseo/plugin";
+} from "@getpaseo/plugin/client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Image,

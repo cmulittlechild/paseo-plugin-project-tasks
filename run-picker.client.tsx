@@ -1,4 +1,4 @@
-import { usePaseo, type PluginWorkspacePanelProps } from "@getpaseo/plugin";
+import { usePaseo, type PluginWorkspacePanelProps } from "@getpaseo/plugin/client";
 import { useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import {
